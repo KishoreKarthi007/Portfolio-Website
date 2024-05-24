@@ -1,0 +1,485 @@
+/* ------------------- */
+/*  Custom properties  */
+/* ------------------- */
+:root {
+    /* Colors */
+    --black: #202329;
+    --cream: #FFEED4E5;
+    --grey: #2B3138;
+    --orange: #FD662B;
+
+    /* Typography */
+    --montserrat: 'Montserrat', sans-serif;
+    --timesnewroman: 'Times New Roman', Times, serif;
+
+    /* font-sizes */
+    --fs-110px: clamp(8rem, 7.143rem + 4.286vw, 11rem);
+    --fs-80px: clamp(6rem, 5.429rem + 2.857vw, 8rem);
+    --fs-60px: clamp(5rem, 4.714rem + 1.429vw, 6rem);
+    --fs-50px: clamp(4rem, 3.714rem + 0.893vw, 5rem);
+    --fs-45px: clamp(3rem, 3.214rem + 1.429vw, 4.5rem);
+    --fs-40: clamp(2.6rem, 2.714rem + 1.429vw, 4rem);
+    --fs-30px: clamp(2.2rem, 1.714rem + 1.429vw, 3rem);
+    --fs-25px: clamp(2rem, 1.857rem + 0.714vw, 2.5rem);
+    --fs-20px: clamp(1.6rem, 1.357rem + 0.714vw, 2rem);
+    --fs-18px: clamp(1.4rem, 1.029rem + 0.857vw, 1.8rem);
+    --fs-16px: clamp(1.2rem, 0.829rem + 0.857vw, 1.6rem);
+    --fs-14px: clamp(1rem, 0.886rem + 0.571vw, 1.4rem);
+    --fs-13px: clamp(0.8rem, 0.686rem + 0.571vw, 1.2rem);
+
+}
+
+/* ------------------- */
+/*       Reset         */
+/* ------------------- */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+    font-size: 10px;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin: 0;
+
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+    list-style: none;
+}
+
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    line-height: 1.5;
+    font-family: var(--montserrat);
+    background-color: var(--black);
+    color: var(--cream);
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+    line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+    text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a {
+    text-decoration: none;
+}
+
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+    color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Button default style removed */
+button,
+.primary-btn,
+.secondary-btn {
+    display: inline-block;
+    border: none;
+    padding: .8rem 1.6rem;
+    margin: 0;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+    min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+    scroll-margin-block: 5ex;
+}
+
+
+/* ------------------- */
+/*      Components     */
+/* ------------------- */
+.container {
+    position: relative;
+    max-width: 1240px;
+    margin-inline: auto;
+    padding-inline: 1.6rem;
+}
+
+.logo {
+    color: var(--cream);
+    display: inline-block;
+    float: left;
+    font-size: var(--fs-16px);
+    font-weight: 500;
+}
+
+.logo:hover,
+.logo::before,
+.logo:focus {
+    opacity: .9;
+}
+
+h1 {
+    text-align: center;
+    font-family: var(--timesnewroman);
+    font-size: var(--fs-80px);
+    font-weight: 400;
+    text-transform: capitalize;
+}
+
+h2 {
+    font-family: var(--timesnewroman);
+    font-size: var(--fs-60px);
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+h3 {
+    color: var(--cream);
+    font-size: var(--fs-20px);
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.body-text-l {
+    font-size: var(--fs-20px);
+    font-weight: 500;
+    line-height: 3rem;
+}
+
+.body-text-m {
+    font-size: var(--fs-16px);
+    font-weight: 400;
+    line-height: 2.5rem;
+}
+
+.link {
+    font-size: var(--fs-14px);
+    font-weight: 400;
+    text-transform: capitalize;
+}
+
+.num {
+    color: var(--grey);
+    font-size: var(--fs-110px);
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.line-s {
+    display: inline-block;
+    margin-bottom: 0.2rem;
+    max-width: 5.2rem;
+    height: 0.2rem;
+    border-radius: 1rem;
+    background-color: var(--orange);
+}
+
+.line-m {
+    width: 100%;
+    height: 0.2rem;
+    border-radius: 1rem;
+    background-color: var(--grey);
+}
+
+.highlight {
+    color: var(--orange);
+}
+
+.highlight-2 {
+    color: var(--grey);
+    font-size: var(--fs-30px);
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+
+.primary-btn,
+.secondary-btn {
+    color: var(--cream);
+    text-align: center;
+    font-size: var(--fs-16px);
+    font-weight: 500;
+    cursor: pointer;
+    padding: 2rem 6rem;
+}
+
+.primary-btn {
+    background-color: var(--orange);
+    border: 0.2rem solid var(--orange);
+}
+
+.primary-btn:hover,
+.primary-btn::before,
+.primary-btn:focus {
+    background-color: var(--cream);
+    border: 0.2rem solid var(--cream);
+    color: var(--black);
+}
+
+.secondary-btn {
+    background-color: var(--black);
+    border: 0.2rem solid var(--orange);
+}
+
+.secondary-btn:hover,
+.secondary-btn::before,
+.secondary-btn:focus {
+    background-color: var(--cream);
+    border: 0.2rem solid var(--cream);
+    color: var(--black);
+}
+
+
+.btn-circle {
+    display: inline-block;
+    padding: 1.5rem 1.6rem;
+    border: 0.2rem solid var(--cream);
+    border-radius: 100%;
+}
+
+.btn-circle img {
+    width: 3rem;
+    height: 3rem;
+}
+
+.btn-circle:hover,
+.btn-circle::before,
+.btn-circle:focus {
+    background-color: var(--cream);
+}
+
+/*  ------------------- ------------------- */
+/*  ---------------- Starter ---------------*/
+/*  ------------------- ------------------- */
+
+/* Hero */
+#hero {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+header {
+    padding: 4rem 0;
+}
+
+/* Navigation Bar */
+nav ul {
+    float: right;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    float: left;
+    margin-left: 3rem;
+}
+
+nav a {
+    display: block;
+    color: var(--cream);
+    text-decoration: none;
+    transition-delay: 0.1s;
+}
+
+nav a:hover {
+    color: var(--orange);
+}
+
+.active {
+    color: var(--orange);
+}
+
+nav ul.slide {
+    right: 0;
+    transition: 1s;
+}
+
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+    float: right;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--cream);
+}
+
+@media(max-width:768px) {
+
+    .hamburger-menu {
+        display: block;
+    }
+
+    nav {}
+
+    nav ul {
+        position: fixed;
+        width: 40%;
+        height: 100vh;
+        top: 0;
+        right: -100%;
+        ;
+        margin-top: 80px;
+        background-color: var(--grey);
+        transition: 2s;
+    }
+
+    nav li {
+        margin-left: 0;
+        padding: 15px 20px;
+        float: none;
+    }
+
+    nav li:hover {
+        background-color: var(--black);
+    }
+}
+
+/* Hero Content */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-block: max(4rem, 10vh) max(10rem, 16vh);
+}
+
+.hero-content h1 {
+    background-color: var(--grey);
+    padding: 2rem;
+    max-width: 938px;
+    
+}
+
+.hero-content p {
+    max-width: 870px;
+    margin-block: 3.2rem 4rem ;
+}
+
+.hero-btns {
+    display: flex;
+    gap:2rem
+}
+@media (max-width:600px) {
+    .hero-btns {
+        flex-direction: column;
+    }
+}
+
+/* Services*/
+#services {
+    display: flex;
+    flex-direction: column;
+    column-gap: 4rem;
+    row-gap: 6rem;
+}
+#services > *{
+    width: 100%;
+}
+.s-right > *{
+    padding-block: 3rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border-top: .2rem solid var(--grey);
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 3rem;
+}
+.s-right .btn-circle{
+    /* margin-top: 3.6rem; */
+    
+}
+.s-right  h3{
+    max-width: 16rem;
+    text-align: center;
+    
+}
+.s-left p{
+    /* max-width: 50rem; */
+    text-align: justify;
+    
+}
+
+@media (min-width:500px) {
+    #services{
+        flex-direction: row;
+    }
+    .s-right > *{
+        flex-direction: row;
+        
+    }
+    
+}
+
+@media (max-width:1024px) {
+    #services{
+        flex-direction: column;
+    }
+    .s-right  h3{
+        max-width: auto;
+        
+    }
+}
